@@ -1,0 +1,153 @@
+
+<script>
+function dis()
+
+{
+if(document.form1.a.value=="")
+{
+alert("please enter userid");
+document.form1.a.focus();
+return false;
+}
+if(document.form1.b.value=="")
+{
+alert("please enter password");
+document.form1.b.focus();
+return false;
+}
+if(document.form1.b.value.length < 7)
+{
+alert("Min password length is 7");
+document.form1.b.focus();
+return false;
+}
+if(document.form1.c.value=="")
+{
+alert("Please enter name");
+document.form1.c.focus();
+return false;
+}
+if(document.form1.d.value=="")
+{
+alert("Please enter address");
+document.form1.d.focus();
+return false;
+}
+if(document.form1.s1.selectedIndex==0)
+{
+alert("please select your country");
+document.form1.s1.focus();
+return false();
+}
+
+var i;
+var numSelected = 0;
+for(i=0; i<document.form1.s1.length; i++)
+{
+if(document.form1.s1.options[i].selected)
+numSelected++;
+}
+if(document.form1.z.value=="")
+{
+alert("please enter zipcode");
+document.form1.z.focus();
+return false();
+}
+if(document.form1.e.value=="")
+{
+alert("please enter email id");
+document.form1.e.focus();
+return false();
+}
+if((document.form1.m[0].checked==false) && (document.form1.m[1].checked==false))
+{
+alert ("Please choose your gender");
+return false;
+}
+var checked=false;
+for(i=0; i<document.form1.l1.length; i++)
+{
+if(document.form1.l1[i].checked)
+{
+checked=true;
+}
+}
+if(!checked)
+{
+alert("please select your language");
+return false;
+}
+
+var x="User id: "+document.form1.a.value;
+x+="Password: "+document.form1.b.value;
+x+="Name: "+document.form1.c.value;
+x+="Address: "+document.form1.d.value;
+x+="Country: ";
+for (i=0;i<document.form1.s1.options.length;i++) 
+{
+    if (document.form1.s1.options[i].selected==true) 
+    {
+       x+= " "+document.form1.s1[i].value;
+    }
+}
+x+="ZIP Code: "+document.form1.z.value;
+x+="Email: "+document.form1.e.value;
+x+="Sex: ";
+for(i=0; i<document.form1.m.length; i++)
+{
+if(document.form1.m[i].checked==true)
+{
+x+=" "+document.form1.m[i].value;
+}
+}
+x+="Language: ";
+for (i=0; i<document.form1.l1.length; i++)
+{
+if (document.form1.l1[i].checked==true)
+{
+x+=" " + document.form1.l1[i].value;
+}
+}
+x+="About: "+document.form1.t.value;
+
+
+alert(x);
+document.write(x);
+console.log(x);
+return true;
+}
+</script>
+
+<h1>Registration Form</h1>
+<form name="form1" method=post action="" onsubmit="return dis()">
+User id: <input type="text" name="a"><p>
+Password: <input type="password" name="b"><p>
+Name: <input type="text" name="c"><p>
+Address: <input type="text" name="d"><p>
+Country:
+<select name=s1  multiple> 
+<option value selected>--Please select Country--</option>
+<option value="India" >India</option value>
+<option value="Korea" >Korea</option value>
+<option value="France" >France</option value>
+<option value="China" >China</option value>
+<option value="Japan" >Japan</option value>
+</select>
+<p> 
+ZIP Code: <input type="text" name="z"><p>
+Email: <input type="email" name="e"><p>
+Sex:
+<input type="radio" name="m" value="Male" />Male
+<input type="radio" name="m" value="Female" />Female
+<p>
+Language:
+<input type="checkbox" name="l1" value="English">English
+<input type="checkbox" name="l1" value="Non English">Non english
+<p>
+About: 
+<textarea name="abt" name="t" rows=10 cols=30>
+</textarea>
+<p>
+<input type="submit" value="submit">
+
+</form>
